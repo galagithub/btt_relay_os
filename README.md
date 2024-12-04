@@ -22,3 +22,6 @@ Current features:
 - power off delay: 15s - time to allow the board/PC to shutdown cleanly
 
 More details in the C code.
+
+Relay information can be found here:
+https://github.com/bigtreetech/BIGTREETECH-Relay-V1.2

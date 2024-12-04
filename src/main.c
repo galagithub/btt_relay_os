@@ -10,7 +10,7 @@
 
 #define RESPONSE_DELAY  100 /* how fast the sofware responds to input changes */
 #define START_DELAY_S   45  /* time at startup to ignore PS_DLY state */
-#define STOP_DELAY_S    15  /* time at startup to ignore PS_DLY state */
+#define STOP_DELAY_S    15  /* time to wait before power off after trigger by PS_DLY */
 
 #define PWUP_DLY_TICKS  (START_DELAY_S*1000UL/RESPONSE_DELAY*1UL)
 #define PWDN_DLY_TICKS  (STOP_DELAY_S*1000UL/RESPONSE_DELAY*1UL)
