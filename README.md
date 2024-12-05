@@ -12,6 +12,7 @@ How it works:
 5) if PS_ON is low, then the relay will go to "power delay" state, which means it will shut down after 20 seconds.
 6) when the relay shuts down (cuts power to the printer) it will go into "recovery delay" state for 30 seconds.
 7) after recovery delay, the relay will go into "tripped" state, where it will reset itself if PS_ON signal goes to high.
+
 At any time, if enabled, the short-circuit protection can be engaged, when 5V_IN signal is lower than 4.5 Volts.
 The relay can be reset at any time, from eny state, by shorting the reset pin on board to relay 5V pin (momentary switch). If these 2 pins are always shorted, then the relay is disabled, thus providing power to the printer with no control over it. Relay states are signaled via on-board leds.
 
