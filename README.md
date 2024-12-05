@@ -18,10 +18,10 @@ To flash MCU:
 7) wait for program to flash, check messages in terminal for errors
 
 Current features:
-- response time: 100ms - changes in conditions faster than this won't be detected
+- response time: 100ms - changes in conditions faster than this won't be detected, limit to max 500ms
 - startup delay: 60s - the relay will not trip is PS_ON is disconnected (or 0) and power has just been applied
 - power off delay: 20s - time to allow the board/PC to shutdown cleanly
-- recovery delay: 5s - recover with PS_ON after power off, blanking time to avoid fast power off/on cycle
+- recovery delay: 30s - blanking time to avoid fast power off/on cycle, after which relay can recover with PS_ON (self-reset)
 
 Leds show state:
 - green off and red off - no power to the relay
@@ -29,6 +29,7 @@ Leds show state:
 - green on and red blinking - startup delay, power to system, only SC is available
 - green on and red off - power to the system
 - green blinking and red off - PS_ON triggered, power off delay
+- green and red blinking - no power to the system, wait for recovery delay
 - green off and red on - no power to the system, relay is in power off state
 - green alternate red blinking - SC triggered
 
