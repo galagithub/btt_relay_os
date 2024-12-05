@@ -9,13 +9,13 @@ All the build requirements should be automatically handled by platform.io.
 Development environment assumes you are using vscode with platform.io installed and have a 5V serial adapter to flash the MCU.
 
 To flash MCU:
-0) the relay board should have no power
-1) connect 5V serial adapter to board 4 pin header reversing TX and RX, do not connect the 5V pin!
-2) put a jumper on the reset header.
-3) power on the relay board (high voltage is present!)
-4) click "Upload" in platform.io controls, a new terminal will appear
-5) when message "Cycling power: done" appears remove jumper from reset pins (high voltage may be present!)
-6) wait for program to flash, check messages in terminal for errors
+1) the relay board should have no power
+2) connect 5V serial adapter to board 4 pin header reversing TX and RX, do not connect the 5V pin!
+3) put a jumper on the reset header.
+4) power on the relay board (high voltage is present!)
+5) click "Upload" in platform.io controls, a new terminal will appear
+6) when message "Cycling power: done" appears remove jumper from reset pins (high voltage may be present!)
+7) wait for program to flash, check messages in terminal for errors
 
 Current features:
 - response time: 100ms - changes in conditions faster than this won't be detected
