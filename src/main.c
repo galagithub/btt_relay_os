@@ -99,9 +99,10 @@ void main(void) {
             if (updelay > PWUP_DLY_TICKS) {
                 /* check PS_DLY */
                 if (PS_DLY)
-                    goto_state(running);
+                    goto_state(blanking);
                 /* PS_ON must have signal to continue ! */
-                goto_state(blanking);
+                else
+                    goto_state(running);
             }
             break;
         case running:
@@ -149,8 +150,13 @@ void main(void) {
                 blink = 0;
             }
             /* check power down delay */
-            if (updelay > PWRE_DLY_TICKS)
-                goto_state(tripped);
+            if (updelay > PWRE_DLY_TICKS) {
+                /* check PS_DLY, if 1 then go to tripped */
+                if (PS_DLY)
+                    goto_state(tripped);
+                else
+                    reset();
+            }
             break;
         case tripped:
             /* tripped state */
@@ -160,7 +166,6 @@ void main(void) {
             LED_ON = 0;
             /* power recovery (self-reset) */
             if (!PS_DLY)
-                //goto_state(powerup);
                 reset();
             break;   
         default:
