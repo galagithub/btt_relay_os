@@ -34,8 +34,9 @@ Leds show state:
 
 More details in the C code.
 
-Relay information can be found here: https://github.com/bigtreetech/BIGTREETECH-Relay-V1.2
-MCU vendor web page: https://www.stcmicro.com/STC/STC15W204S.html
+Information regarding HW:
+- BTT docs: https://github.com/bigtreetech/BIGTREETECH-Relay-V1.2
+- MCU vendor web page: https://www.stcmicro.com/STC/STC15W204S.html
 
 Alternative firmwares:
 1) https://github.com/talv2010/biqu-relay-v1.2-firmware-modified
