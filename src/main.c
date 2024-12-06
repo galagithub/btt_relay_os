@@ -3,6 +3,9 @@
 #include <delay.h>
 #include <reset.h>
 
+/* define this to check if PS_ON has signal before going to blanking state */
+#define IGNORE_FALSE_TRIPPING
+
 #define LED_OFF     P30     /* Power off led (red) */
 #define LED_ON      P31     /* Power on led (green) */
 #define PS_DLY      P32     /* Delayed power off */
@@ -134,6 +137,11 @@ void main(void) {
             }
             /* check power down delay */
             if (updelay > PWDN_DLY_TICKS)
+#ifdef IGNORE_FALSE_TRIPPING
+                if (!PS_DLY)
+                    goto_state(running);
+                else
+#endif
                 goto_state(blanking);
             break;        
         case blanking:
