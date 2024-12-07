@@ -1,10 +1,10 @@
-Alternative Firmware for BTT Relay v1.2
+### Alternative Firmware for BTT Relay v1.2
 
-ATTENTION!
+# ATTENTION!
 The relay board contains high voltage area, which may result in serious harm to the operator (even death).
 The author assumes no liability which may come from using the software or by following the instructions included in this project.
 
-How it works:
+# How it works:
 1) AC power on to relay
 2) relay powers the printer main power supply.
 3) after 60 seconds the relay looks for PS_ON signal to be high (over 1 Volt).
@@ -20,7 +20,7 @@ It is using platform.io and written using C language.
 All the build requirements should be automatically handled by platform.io.
 Development environment assumes you are using vscode with platform.io installed and have a 5V serial adapter to flash the MCU.
 
-To flash MCU:
+# To flash MCU:
 1) the relay board should have no power
 2) connect 5V serial adapter to board 4 pin header reversing TX and RX, do not connect the 5V pin!
 3) put a jumper on the reset header.
@@ -29,13 +29,13 @@ To flash MCU:
 6) when message "Cycling power: done" appears remove jumper from reset pins (high voltage may be present!)
 7) wait for program to flash, check messages in terminal for errors
 
-Current features:
+# Current features:
 - response time: 100ms - changes in conditions faster than this won't be detected, limit to max 500ms
 - startup delay: 60s - the relay will not trip is PS_ON is disconnected (or 0) and power has just been applied
 - power off delay: 20s - time to allow the board/PC to shutdown cleanly
 - recovery delay: 30s - blanking time to avoid fast power off/on cycle, after which relay can recover with PS_ON (self-reset)
 
-Leds show state:
+# Leds show state:
 - green off and red off - no power to the relay
 - green on and red on -  MCU is reset or in programming mode
 - green on and red blinking - startup delay, power to system, only SC is available
@@ -47,10 +47,13 @@ Leds show state:
 
 More details in the C code.
 
-Information regarding HW:
+# Information regarding HW:
 - BTT docs: https://github.com/bigtreetech/BIGTREETECH-Relay-V1.2
 - MCU vendor web page: https://www.stcmicro.com/STC/STC15W204S.html
 
-Alternative firmwares:
+# Alternative firmwares:
 1) https://github.com/talv2010/biqu-relay-v1.2-firmware-modified
 2) https://github.com/sobieh/bttrelay
+
+# Related projects
+- Display PCB: https://github.com/galagithub/btt_relay_display
