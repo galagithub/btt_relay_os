@@ -1,24 +1,38 @@
 # Alternative Firmware for BTT Relay v1.2
 
-### ATTENTION!
-The relay board contains high voltage area, which may result in serious harm to the operator (even death).
-The author assumes no liability which may come from using the software or by following the instructions included in this project.
+> [!CAUTION]  
+> <p>The relay board contains high voltage area, which may result in serious harm to the operator (<strong>even death</strong>).</p>
+> <p>The author assumes no liability which may come from using the software or by following the instructions included in this project.</p>
 
 ### How it works:
 1) AC power on to relay
-2) relay powers the printer main power supply.
-3) after 60 seconds the relay looks for PS_ON signal to be high (over 1 Volt).
-4) if PS_ON if high, then relay goes to "running" state and awaits PS_ON to go low (0 Volts).
-5) if PS_ON is low, then the relay will go to "power delay" state, which means it will shut down after 20 seconds.
-6) when the relay shuts down (cuts power to the printer) it will go into "recovery delay" state for 30 seconds.
-7) after recovery delay, the relay will go into "tripped" state, where it will reset itself if PS_ON signal goes to high.
+2) relay powers the printer main power supply
+3) after 60 seconds the relay looks for PS_ON signal to be high (over 1 Volt)
+4) if PS_ON if high, then relay goes to "<strong>running</strong>" state and awaits PS_ON to go low (0 Volts)
+5) if PS_ON is low, then the relay will go to "<strong>power delay</strong>" state, which means it will shut down after 20 seconds
+6) when the relay shuts down (cuts power to the printer) it will go into "<strong>recovery delay</strong>" state for 30 seconds
+7) after recovery delay, the relay will go into "<strong>tripped</strong>" state, where it will reset itself if PS_ON signal goes to high
 
-At any time, if enabled, the short-circuit protection can be engaged, when 5V_IN signal is lower than 4.5 Volts.
-The relay can be reset at any time, from eny state, by shorting the reset pin on board to relay 5V pin (momentary switch). If these 2 pins are always shorted, then the relay is disabled, thus providing power to the printer with no control over it. Relay states are signaled via on-board leds.
+> [!TIP]
+> <p>At any time, if enabled, the short-circuit protection will engage when 5V_IN signal is lower than 4.5 Volts. Power to the printer will be cut until reset or full poweroff.</p>
 
-It is using platform.io and written using C language.
-All the build requirements should be automatically handled by platform.io.
-Development environment assumes you are using vscode with platform.io installed and have a 5V serial adapter to flash the MCU.
+> [!TIP]
+> <p>The relay can be reset at any time from any state by shorting the RESET pin on board to relay 5V pin momentarily. If these 2 pins are always shorted, then the relay is disabled, thus providing power to the printer with no control over it. Relay states are signaled via on-board leds.</p>
+
+### To build:
+1) install git
+2) install vscode
+3) install PlatformIO extension
+4) chekout code using preferred method
+5) use the PlatformIO tab to build all targets
+
+<p>Written using C language. All the build requirements are automatically handled by PlatformIO.</p>
+<p>Development environment assumes you have a 5V serial adapter to flash the MCU (to use the Upload feature form PlatformIO). The oficial upload tool is available on the MCU vendor web page.</p>
+<p>Uses [mgoblin/STC15lib](https://github.com/mgoblin/STC15lib) MCU library.</p>
+
+> [!NOTE]
+> Due to an upstream bug in the MCU library, there is no support for building on Windows.
+> Building on MacOS not yet tested.
 
 ### To flash MCU:
 1) the relay board should have no power
