@@ -17,7 +17,10 @@
 > <p>At any time, if enabled, the short-circuit protection will engage when 5V_IN signal is lower than 4.5 Volts. Power to the printer will be cut until reset or full poweroff.</p>
 
 > [!TIP]
-> <p>The relay can be reset at any time from any state by shorting the RESET pin on board to relay 5V pin momentarily. If these 2 pins are always shorted, then the relay is disabled, thus providing power to the printer with no control over it. Relay states are signaled via on-board leds.</p>
+> <p>The relay can be reset at any time from any state by shorting the RESET pin on board to relay 5V pin momentarily. If these 2 pins are always shorted, then the relay is disabled, thus providing power to the printer with no control over it.</p>
+
+> [!TIP]
+> <p>Relay states are signaled via on-board leds.</p>
 
 ### To build:
 1) install git
@@ -27,7 +30,7 @@
 5) use the PlatformIO tab to build all targets
 
 <p>Written using C language. All the build requirements are automatically handled by PlatformIO.</p>
-<p>Development environment assumes you have a 5V serial adapter to flash the MCU (to use the Upload feature form PlatformIO). The oficial upload tool is available on the MCU vendor web page.</p>
+<p>Development environment assumes you have a 5V serial adapter to flash the MCU (use the Upload feature from PlatformIO). The oficial upload tool is available on the MCU vendor web page.</p>
 <p>Uses [mgoblin/STC15lib](https://github.com/mgoblin/STC15lib) MCU library.</p>
 
 > [!NOTE]
@@ -67,6 +70,7 @@ More details in the C code.
 ### Information regarding HW:
 - BTT docs: https://github.com/bigtreetech/BIGTREETECH-Relay-V1.2
 - MCU vendor web page: https://www.stcmicro.com/STC/STC15W204S.html
+- Open source MCU flash tool: https://github.com/grigorig/stcgal
 
 ### Alternative firmwares:
 1) https://github.com/talv2010/biqu-relay-v1.2-firmware-modified
