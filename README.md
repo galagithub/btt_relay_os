@@ -35,7 +35,6 @@
 
 > [!NOTE]
 > Due to an upstream bug in the MCU library, there is no support for building on Windows.
-> Building on MacOS not yet tested.
 
 ### To flash MCU:
 1) the relay board should have no power
