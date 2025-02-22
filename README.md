@@ -43,6 +43,9 @@
 6) when message "Cycling power: done" appears remove jumper from reset pins (high voltage may be present!)
 7) wait for program to flash, check messages in terminal for errors
 
+> [!NOTE]
+> <p>You can find hex files ready to flash under "<strong>bin</strong>" folder. This folder is manually updated for now.</p>
+
 ### Current features:
 - response time: 100ms - changes in conditions faster than this won't be detected, limit to max 500ms
 - startup delay: 60s - the relay will not trip is PS_ON is disconnected (or 0) and power has just been applied
